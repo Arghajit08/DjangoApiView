@@ -16,6 +16,7 @@ class StudentAPI(APIView):
         serializer=StudentSerializer(data=request.data)
         if not serializer.is_valid():
             print(serializer.errors)
+        serializer.save()
         return Response({'status':200,'message':serializer.data})
     
     def put(self,request):
